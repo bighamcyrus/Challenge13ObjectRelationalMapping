@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       // Add Book as a second model to JOIN with
       include: [{ model: Tag }, { model: Category }],
     });
-    res.status(200).json(readerData);
+    res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).json(readerData);
+    res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
