@@ -8,8 +8,8 @@ router.get('/', async (req, res) => {
   // find all products
   try {
     const productData = await Product.findAll({
-      // Add Book as a second model to JOIN with
-      include: [{ model: Tag }, { model: Category }],
+      
+      include: [{ model: Tag, through: ProductTag}, { model: Category }],
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   try {
     const productData = await Product.findByPk(req.params.id, {
-      // Add Book as a second model to JOIN with
+      
       include: [{ model: Tag }, { model: Category }],
     });
 
