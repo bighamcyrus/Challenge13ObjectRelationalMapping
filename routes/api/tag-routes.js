@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const tagsdb = await Tag.findAll({
       
-      include: [{ model: Tag }, { model: Product }],
+      // include: [{ model: Tag }, { model: Product }],
     });
     res.status(200).json(tagsdb);
   } catch (err) {
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     try{
     const tagsdb = await Tag.findByPk(req.params.id, {
       // Add Book as a second model to JOIN with
-      include: [{ model: Tag }, { model: Product }],
+      // include: [{ model: Tag }, { model: Product }],
     });
 
     if (!tagsdb) {
